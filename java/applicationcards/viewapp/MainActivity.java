@@ -5,6 +5,11 @@ import android.os.Bundle;
 import android.widget.ImageView;
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.resource.bitmap.CenterCrop;
+import com.bumptech.glide.load.resource.bitmap.FitCenter;
+
+import static android.R.attr.width;
+import static applicationcards.viewapp.R.attr.height;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -14,7 +19,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
 
-/*
+
         ImageView imageView = (ImageView) findViewById(R.id.imageView);
         Glide.with(this)
                 .load("http://www.ya-case.ru/upload/catalog/458/55237_47.jpg")
@@ -27,12 +32,15 @@ public class MainActivity extends AppCompatActivity {
                 .load("http://www.ya-case.ru/upload/catalog/458/55237_47.jpg")
                 .transform(new CircleTransform(MainActivity.this))
                 .into(imageViewCircle);
-*/
+
         ImageView imageViewR= (ImageView) findViewById(R.id.imageViewR);
+        int width = Utils.dip2px(MainActivity.this, 933.33f);
+        int height = Utils.dip2px(MainActivity.this, 926.33f);
         Glide.with(MainActivity.this)
                 .load("http://www.ya-case.ru/upload/catalog/458/55237_47.jpg")
-                .transform(new RhombusesTransact(MainActivity.this))
+               .override(width, height)
+                .bitmapTransform(new FitCenter(MainActivity.this),
+                        new MaskTransformation(MainActivity.this, R.drawable.romb))
                 .into(imageViewR);
-
     }
 }
