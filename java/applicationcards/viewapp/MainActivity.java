@@ -8,16 +8,19 @@ import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.resource.bitmap.CenterCrop;
 import com.bumptech.glide.load.resource.bitmap.FitCenter;
 
+import java.util.List;
+
 import static android.R.attr.width;
 import static applicationcards.viewapp.R.attr.height;
 
 public class MainActivity extends AppCompatActivity {
 
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.main);
+        setContentView(R.layout.cardview_layout);
 
 
         ImageView imageView = (ImageView) findViewById(R.id.imageView);
@@ -49,5 +52,14 @@ public class MainActivity extends AppCompatActivity {
                 .error( R.drawable.ic_not_image )
                 //http://multik-pic.ru/images/rusalochka/rusalochka36.gif
                 .into( imageGif );
+
+        ImageView imageViewN= (ImageView) findViewById(R.id.imageN);
+        Glide.with(MainActivity.this)
+                .load("http://images1.fanpop.com/images/photos/1700000/Alice-in-Wonderland-1951-alice-in-wonderland-1759199-500-372.jpg")
+                .transform(new CircleTransform(MainActivity.this))
+                .into(imageViewN);
+
+
+
     }
 }

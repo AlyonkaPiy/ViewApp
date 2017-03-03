@@ -1,3 +1,6 @@
 <resources>
     <string name="app_name">ViewApp</string>
+    <string name="hide">Скрыть</string>
+    <string name="follow">Подписаться</string>
+    <string name="name_alice">Alice</string>
 </resources>
