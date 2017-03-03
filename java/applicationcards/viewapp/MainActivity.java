@@ -38,9 +38,16 @@ public class MainActivity extends AppCompatActivity {
         int height = Utils.dip2px(MainActivity.this, 926.33f);
         Glide.with(MainActivity.this)
                 .load("http://www.ya-case.ru/upload/catalog/458/55237_47.jpg")
-               .override(width, height)
+                .override(width, height)
                 .bitmapTransform(new FitCenter(MainActivity.this),
                         new MaskTransformation(MainActivity.this, R.drawable.romb))
                 .into(imageViewR);
+
+        ImageView imageGif= (ImageView) findViewById(R.id.imageGif);
+        Glide   .with( MainActivity.this )
+                .load( "http://v.img.com.ua/b/orig/3/b3/d8660522f3acaaa7fed1fa319c2adb33.gif" )
+                .error( R.drawable.ic_not_image )
+                //http://multik-pic.ru/images/rusalochka/rusalochka36.gif
+                .into( imageGif );
     }
 }
